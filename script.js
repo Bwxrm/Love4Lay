@@ -3,66 +3,72 @@
 // ==============================
 
 const galleryImages = [
-  "IMG_1268.PNG",
-  "IMG_1121.HEIC",
-  "IMG_0819.HEIC",
-  "IMG_0589.HEIC",
-  "IMG_0588.HEIC",
+  "76155643202__FECF9379-58DA-4F6E-9456-EA89A7C4DCD6.JPG",
+  "DC824ACF-9AD4-4A10-B6BD-D222AFCBE8BB.JPG",
+  "IMG_0083.png",
+  "IMG_0149.png",
+  "IMG_0185.png",
+  "IMG_0193.png",
+  "IMG_0231.PNG",
+  "IMG_0320.PNG",
   "IMG_0428.PNG",
-  "IMG_0556.HEIC",
-  "IMG_0828.HEIC",
+  "IMG_0473.png",
+  "IMG_0556.png",
+  "IMG_0588.png",
+  "IMG_0589.png",
   "IMG_0678.PNG",
-  "IMG_1115.HEIC",
-  "IMG_1119.HEIC",
-  "IMG_1118.HEIC",
-
-  "IMG_1286.HEIC",
+  "IMG_0819.png",
+  "IMG_0828.png",
+  "IMG_1025.png",
+  "IMG_1115.png",
+  "IMG_1118.png",
+  "IMG_1119.png",
+  "IMG_1121.png",
+  "IMG_1268.PNG",
+  "IMG_1278.png",
+  "IMG_1286.png",
+  "IMG_1289.png",
+  "IMG_1329.png",
+  "IMG_1330.png",
+  "IMG_3733.JPG",
+  "IMG_5359 2.jpg",
   "IMG_5359.jpg",
-  "IMG_6049.JPG",
+  "IMG_5383.JPG",
+  "IMG_5576.JPG",
+  "IMG_5750 2.JPG",
+  "IMG_5750.JPG",
+  "IMG_5972.JPG",
+  "IMG_5973.JPG",
   "IMG_5974.JPG",
-  "IMG_5967.JPG",
+  "IMG_5976.JPG",
+  "IMG_5977.JPG",
   "IMG_5980.JPG",
   "IMG_5981.JPG",
-  "IMG_5972.JPG",
-  "IMG_6031.JPG",
+  "IMG_5983.JPG",
   "IMG_5985.JPG",
+  "IMG_5987.JPG",
   "IMG_5988.JPG",
   "IMG_6026.JPG",
-  "IMG_5977.JPG",
-  "IMG_5987.JPG",
-  "IMG_5973.JPG",
-  "IMG_5983.JPG",
-  "IMG_5976.JPG",
-
-  "image1.jpeg",
-  "image0.jpeg",
-  "image2.jpeg",
-  "image3.jpeg",
-  "image4.jpeg",
-  "image5.jpeg",
-  "image6.jpeg",
-  "image7.jpeg",
-  "image8.jpeg",
-  "image9.jpeg",
-  "IMG_0264.jpeg",
-  "IMG_0355.jpeg",
-  "IMG_0231.PNG",
-
+  "IMG_6031.JPG",
+  "IMG_6049.JPG",
+  "IMG_8718.png",
+  "IMG_8909.png",
+  "IMG_8922.jpg",
   "IMG_8926.JPG",
-  "lp_image.HEIC",
-  "IMG_9350.PNG",
-  "IMG_8557.HEIC",
-  "IMG_9136.PNG",
-  "IMG_8943.HEIC",
-  "lp_image 5.HEIC",
-  "lp_image 6.heic",
-  "IMG_8718.HEIC",
-  "lp_image 4.HEIC",
+  "IMG_8943.png",
   "IMG_9012.PNG",
+  "IMG_9136.PNG",
   "IMG_9167.PNG",
-  "lp_image 3.HEIC",
-  "IMG_9206.PNG"
+  "IMG_9206.PNG",
+  "IMG_9350.PNG",
+  "lp_image 2.png",
+  "lp_image 3.png",
+  "lp_image 4.png",
+  "lp_image 5.png",
+  "lp_image 6.png",
+  "lp_image.png"
 ];
+
 
 // =====================================
 // Build the gallery grid
@@ -77,18 +83,20 @@ function buildGallery() {
     item.className = "gallery-item";
 
     const img = document.createElement("img");
-    img.src = "images/" + file; // <--- Correct path
+    img.src = "images/" + file;  // <--- Correct path
     img.alt = "Our moment";
 
     item.appendChild(img);
     grid.appendChild(item);
 
+    // open lightbox on click
     item.addEventListener("click", () => openLightbox(img.src));
   });
 }
 
+
 // ============================
-// Lightbox
+// Lightbox viewer
 // ============================
 
 const lightbox = document.getElementById("lightbox");
@@ -109,11 +117,16 @@ lightboxCloseBtn.addEventListener("click", closeLightbox);
 document.querySelector(".lightbox-backdrop").addEventListener("click", closeLightbox);
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeLightbox();
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
 });
 
+
 // ============================
-// Init
+// Initialize on page load
 // ============================
 
-document.addEventListener("DOMContentLoaded", buildGallery);
+document.addEventListener("DOMContentLoaded", () => {
+  buildGallery();
+});
