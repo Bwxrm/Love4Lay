@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Moments – Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pink-bg">
+  <header class="site-header">
+    <div class="logo">B ♥ L</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html" class="active">Our Moments</a>
+    </nav>
+  </header>
+
+  <main class="gallery-page">
+    <section class="gallery-intro">
+      <h1>Our Moments at School</h1>
+      <p>
+        Little snapshots of the days that turned into memories.  
+        Every hallway, classroom, and walk across campus feels different with you in it.
+      </p>
+    </section>
+
+    <section class="gallery-grid" id="gallery-grid">
+      <!-- Images will be inserted here by script.js -->
+    </section>
+  </main>
+
+  <!-- Lightbox / modal to show big image -->
+  <div id="lightbox" class="lightbox hidden">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-img" src="" alt="Our moment">
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>These are only some of the reasons I am thankful for you</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
