@@ -1,5 +1,5 @@
 // ==============================
-// Photo gallery images (53 files)
+// Photo gallery images
 // ==============================
 
 const galleryImages = [
@@ -69,8 +69,6 @@ const galleryImages = [
   "lp_image.png"
 ];
 
-// Build the gallery grid
-
 function buildGallery() {
   const grid = document.getElementById("gallery-grid");
   if (!grid) return;
@@ -90,7 +88,7 @@ function buildGallery() {
   });
 }
 
-// Lightbox
+// Lightbox for photos
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -122,8 +120,5 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Init
-
-document.addEventListener("DOMContentLoaded", () => {
-  buildGallery();
-});
+// Initialize only on gallery page
+document.addEventListener("DOMContentLoaded", buildGallery);
