@@ -1,50 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Our Photos – Love4Lay</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos – Love4Lay</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="pink-bg">
+<body>
 
-<header class="site-header">
-  <div class="logo">B ♥ L</div>
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="gallery.html" class="active">Photos</a>
-    <a href="videos.html">Videos</a>
-  </nav>
+<header class="header">
+    <div class="logo">B ♥ L</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html" class="active">Photos</a>
+        <a href="videos.html">Videos</a>
+    </nav>
 </header>
 
-<main class="gallery-page">
-  <section class="gallery-intro">
-    <h1>Our Moments Together</h1>
-    <p>
-      Being apart hasn’t been easy, but loving you has never been hard.
-      Every picture of us means something.
-      These are little reminders of how lucky I am to have you, Laylah.
-    </p>
-  </section>
+<h1 class="page-title">Our Moments Together</h1>
 
-  <section class="gallery-grid" id="gallery-grid">
-    <!-- Images are injected by script.js -->
-  </section>
-</main>
-
-<!-- Image lightbox -->
-<div id="lightbox" class="lightbox hidden">
-  <div class="lightbox-backdrop"></div>
-  <div class="lightbox-content">
-    <button class="lightbox-close" id="lightbox-close">&times;</button>
-    <img id="lightbox-img" src="" alt="moment" />
-  </div>
-</div>
-
-<footer class="site-footer">
-  <p>These are only some of the reasons I&rsquo;m thankful for you.</p>
-</footer>
+<div class="gallery-grid" id="gallery"></div>
 
 <script src="script.js"></script>
 </body>
