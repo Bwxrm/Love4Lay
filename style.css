@@ -1,7 +1,7 @@
 /* ---------- GENERAL ---------- */
 body {
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Segoe UI", system-ui, sans-serif;
     background: #ffe6f2;
     color: #5a0033;
     text-align: center;
@@ -13,7 +13,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background: #ffb3d9;
-    padding: 12px 20px;
+    padding: 12px 18px;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -25,49 +25,61 @@ body {
 }
 
 nav a {
-    margin-left: 14px;
+    margin-left: 10px;
     text-decoration: none;
     color: #5a0033;
-    padding: 6px 12px;
-    border-radius: 20px;
+    padding: 6px 10px;
+    border-radius: 16px;
+    font-size: 14px;
 }
 
-nav a.active, nav a:hover {
+nav a.active,
+nav a:hover {
     background: white;
 }
 
-/* ---------- HERO SECTION ---------- */
+/* ---------- HERO ---------- */
 .hero {
-    padding: 30px 20px;
+    padding: 24px 18px 32px;
 }
 
 .tagline {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
     color: #a30052;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.hero h1 {
+    font-size: 26px;
+    margin-bottom: 18px;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    border-radius: 15px;
+    padding: 18px;
+    border-radius: 16px;
     max-width: 700px;
-    margin: 20px auto;
+    margin: 0 auto;
     text-align: left;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .hero-buttons {
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 9px 16px;
+    border-radius: 20px;
     text-decoration: none;
-    font-weight: bold;
-    margin: 5px;
+    font-weight: 600;
+    margin: 4px;
+    font-size: 14px;
 }
 
 .pink {
@@ -80,26 +92,34 @@ nav a.active, nav a:hover {
     color: #ff1a8c;
 }
 
+/* ---------- PAGE TITLES ---------- */
+.page-title {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
 /* ---------- GALLERY ---------- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 10px;
-    padding: 20px;
+    padding: 18px;
 }
 
 .gallery-grid img {
     width: 100%;
-    border-radius: 12px;
+    height: 180px;
     object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 /* ---------- VIDEOS ---------- */
 .video-grid {
     display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    padding: 20px;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    padding: 18px;
 }
 
 .video-card {
@@ -107,21 +127,41 @@ nav a.active, nav a:hover {
     cursor: pointer;
 }
 
-.video-card img {
+.video-card img.thumb {
     width: 100%;
     border-radius: 12px;
+    display: block;
 }
 
 .video-card iframe {
     width: 100%;
     aspect-ratio: 9/16;
-    border: none;
     border-radius: 12px;
+    border: none;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
     margin: 30px 0 20px;
-    font-size: 14px;
+    font-size: 13px;
     color: #a30052;
+}
+
+/* ---------- MOBILE TWEAKS ---------- */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .card {
+        font-size: 13px;
+    }
+
+    .gallery-grid img {
+        height: 150px;
+    }
+
+    .video-card iframe {
+        aspect-ratio: 9/16;
+    }
 }
