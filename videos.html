@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Videos – Love4Lay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pink-bg">
+
+<header class="site-header">
+    <div class="logo">B ♥ L</div>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Photos</a>
+        <a href="videos.html" class="active">Videos</a>
+    </nav>
+</header>
+
+<main class="gallery-page">
+    <section class="gallery-intro">
+        <h1>Our Videos</h1>
+        <p>Little moments of us, from random laughs to memories that mean everything.</p>
+    </section>
+
+    <section class="video-grid" id="videoGrid">
+        <!-- JS will insert videos here -->
+    </section>
+</main>
+
+<!-- Shorts-style viewer -->
+<div id="videoModal" class="video-modal hidden">
+    <div class="video-modal-bg"></div>
+    <div class="video-modal-content">
+        <button id="closeVideo" class="video-close">&times;</button>
+        <iframe id="videoFrame" class="video-frame" src="" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script src="videos.js"></script>
+
+</body>
+</html>
