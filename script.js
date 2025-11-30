@@ -1,8 +1,4 @@
-// ==============================
-// Photo gallery images
-// ==============================
-
-const galleryImages = [
+const images = [
   "76155643202__FECF9379-58DA-4F6E-9456-EA89A7C4DCD6.JPG",
   "DC824ACF-9AD4-4A10-B6BD-D222AFCBE8BB.JPG",
   "IMG_0083.png",
@@ -69,56 +65,13 @@ const galleryImages = [
   "lp_image.png"
 ];
 
-function buildGallery() {
-  const grid = document.getElementById("gallery-grid");
-  if (!grid) return;
+const gallery = document.getElementById("gallery");
 
-  galleryImages.forEach((file) => {
-    const item = document.createElement("div");
-    item.className = "gallery-item";
-
+if (gallery) {
+  images.forEach(name => {
     const img = document.createElement("img");
-    img.src = "images/" + file;
-    img.alt = "Our moment";
-
-    item.appendChild(img);
-    grid.appendChild(item);
-
-    item.addEventListener("click", () => openLightbox(img.src));
+    img.src = "images/" + name;
+    img.loading = "lazy";
+    gallery.appendChild(img);
   });
 }
-
-// Lightbox for photos
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxCloseBtn = document.getElementById("lightbox-close");
-const backdrop = lightbox ? lightbox.querySelector(".lightbox-backdrop") : null;
-
-function openLightbox(src) {
-  if (!lightbox || !lightboxImg) return;
-  lightboxImg.src = src;
-  lightbox.classList.remove("hidden");
-}
-
-function closeLightbox() {
-  if (!lightbox) return;
-  lightbox.classList.add("hidden");
-}
-
-if (lightboxCloseBtn) {
-  lightboxCloseBtn.addEventListener("click", closeLightbox);
-}
-
-if (backdrop) {
-  backdrop.addEventListener("click", closeLightbox);
-}
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeLightbox();
-  }
-});
-
-// Initialize only on gallery page
-document.addEventListener("DOMContentLoaded", buildGallery);
