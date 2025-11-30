@@ -1,6 +1,8 @@
-// List of compressed videos stored in /videos
+// ==============================
+// Video gallery (simple grid with play icon)
+// ==============================
 
-const videos = [
+const videoFiles = [
   "10031B32e8b24e50b457e89a153ad6cc.mp4",
   "1530ce1ae24a48879359ed82386d5e8.mp4",
   "1A81dd32968742e19a0e32c49a162840(1).mp4",
@@ -25,3 +27,64 @@ const videos = [
   "RenderedVideo.mp4",
   "V12044gd0000d0CGPl7og65l5q3gg4kg.mp4"
 ];
+
+const videoGrid = document.getElementById("video-grid");
+const videoLightbox = document.getElementById("video-lightbox");
+const lightboxVideo = document.getElementById("lightbox-video");
+const videoLightboxClose = document.getElementById("video-lightbox-close");
+const videoBackdrop = videoLightbox
+  ? videoLightbox.querySelector(".lightbox-backdrop")
+  : null;
+
+function buildVideoGrid() {
+  if (!videoGrid) return;
+
+  videoFiles.forEach((file, index) => {
+    const item = document.createElement("div");
+    item.className = "gallery-item";
+
+    const thumb = document.createElement("div");
+    thumb.className = "video-thumb";
+
+    const icon = document.createElement("div");
+    icon.className = "play-icon";
+    icon.textContent = "▶";
+
+    thumb.appendChild(icon);
+    item.appendChild(thumb);
+    videoGrid.appendChild(item);
+
+    item.addEventListener("click", () => openVideoLightbox(file));
+  });
+}
+
+function openVideoLightbox(filename) {
+  if (!videoLightbox || !lightboxVideo) return;
+
+  lightboxVideo.src = "videos/" + filename;
+  lightboxVideo.currentTime = 0;
+  lightboxVideo.play().catch(() => {});
+  videoLightbox.classList.remove("hidden");
+}
+
+function closeVideoLightbox() {
+  if (!videoLightbox || !lightboxVideo) return;
+  lightboxVideo.pause();
+  lightboxVideo.src = "";
+  videoLightbox.classList.add("hidden");
+}
+
+if (videoLightboxClose) {
+  videoLightboxClose.addEventListener("click", closeVideoLightbox);
+}
+if (videoBackdrop) {
+  videoBackdrop.addEventListener("click", closeVideoLightbox);
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeVideoLightbox();
+  }
+});
+
+// Initialize only on videos page
+document.addEventListener("DOMContentLoaded", buildVideoGrid);
