@@ -5,9 +5,8 @@
   <title>Our Videos – Love4Lay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <script defer src="videos.js"></script>
-  <script defer src="videoPage.js"></script>
 </head>
+
 <body class="pink-bg">
 
 <header class="site-header">
@@ -19,23 +18,33 @@
   </nav>
 </header>
 
-<main class="video-page">
-  <section class="video-header">
-    <h1>Our Moments in Motion</h1>
+<main class="gallery-page">
+  <section class="gallery-intro">
+    <h1>Our Little Videos</h1>
     <p>
-      Little clips that feel like us &mdash; the laughs, the looks, the quiet
-      car rides, and everything in between.
+      The laughs, the side-eyes, the car rides, the random moments we decided
+      to record &mdash; all the tiny clips that feel like us.
     </p>
   </section>
 
-  <section class="tiktok-wrapper" id="videoWrapper">
-    <!-- Video cards are added by videoPage.js -->
+  <section class="gallery-grid" id="video-grid">
+    <!-- Video thumbs are injected by videos.js -->
   </section>
 </main>
+
+<!-- Video lightbox -->
+<div id="video-lightbox" class="lightbox hidden">
+  <div class="lightbox-backdrop"></div>
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="video-lightbox-close">&times;</button>
+    <video id="lightbox-video" controls></video>
+  </div>
+</div>
 
 <footer class="site-footer">
   <p>Thank you for being my favorite person to make memories with.</p>
 </footer>
 
+<script src="videos.js"></script>
 </body>
 </html>
