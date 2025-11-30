@@ -1,5 +1,5 @@
 // ==============================
-// Full list of your 53 images
+// Photo gallery images (53 files)
 // ==============================
 
 const galleryImages = [
@@ -69,10 +69,7 @@ const galleryImages = [
   "lp_image.png"
 ];
 
-
-// =====================================
 // Build the gallery grid
-// =====================================
 
 function buildGallery() {
   const grid = document.getElementById("gallery-grid");
@@ -83,38 +80,41 @@ function buildGallery() {
     item.className = "gallery-item";
 
     const img = document.createElement("img");
-    img.src = "images/" + file;  // <--- Correct path
+    img.src = "images/" + file;
     img.alt = "Our moment";
 
     item.appendChild(img);
     grid.appendChild(item);
 
-    // open lightbox on click
     item.addEventListener("click", () => openLightbox(img.src));
   });
 }
 
-
-// ============================
-// Lightbox viewer
-// ============================
+// Lightbox
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const lightboxCloseBtn = document.getElementById("lightbox-close");
+const backdrop = lightbox ? lightbox.querySelector(".lightbox-backdrop") : null;
 
 function openLightbox(src) {
+  if (!lightbox || !lightboxImg) return;
   lightboxImg.src = src;
   lightbox.classList.remove("hidden");
 }
 
 function closeLightbox() {
+  if (!lightbox) return;
   lightbox.classList.add("hidden");
 }
 
-lightboxCloseBtn.addEventListener("click", closeLightbox);
+if (lightboxCloseBtn) {
+  lightboxCloseBtn.addEventListener("click", closeLightbox);
+}
 
-document.querySelector(".lightbox-backdrop").addEventListener("click", closeLightbox);
+if (backdrop) {
+  backdrop.addEventListener("click", closeLightbox);
+}
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
@@ -122,10 +122,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-
-// ============================
-// Initialize on page load
-// ============================
+// Init
 
 document.addEventListener("DOMContentLoaded", () => {
   buildGallery();
