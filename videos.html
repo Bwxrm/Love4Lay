@@ -2,43 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Videos – Love4Lay</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos – Love4Lay</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="pink-bg">
+<body>
 
-<header class="site-header">
+<header class="header">
     <div class="logo">B ♥ L</div>
-    <nav class="nav-links">
+    <nav>
         <a href="index.html">Home</a>
         <a href="gallery.html">Photos</a>
         <a href="videos.html" class="active">Videos</a>
     </nav>
 </header>
 
-<main class="gallery-page">
-    <section class="gallery-intro">
-        <h1>Our Videos</h1>
-        <p>Little moments of us, from random laughs to memories that mean everything.</p>
-    </section>
+<h1 class="page-title">Videos of Us</h1>
 
-    <section class="video-grid" id="videoGrid">
-        <!-- JS will insert videos here -->
-    </section>
-</main>
+<div class="video-grid" id="videos"></div>
 
-<!-- Shorts-style viewer -->
-<div id="videoModal" class="video-modal hidden">
-    <div class="video-modal-bg"></div>
-    <div class="video-modal-content">
-        <button id="closeVideo" class="video-close">&times;</button>
-        <iframe id="videoFrame" class="video-frame" src="" allowfullscreen></iframe>
-    </div>
-</div>
+<script>
+const videoLinks = [
+    "https://youtube.com/shorts/8IJyap1K6CI",
+    "https://youtube.com/shorts/mM5M_PsNO1U",
+    "https://youtube.com/shorts/24dU_zweEmI",
+    "https://youtube.com/shorts/7dFxUMwLjEg",
+    "https://youtube.com/shorts/UC19vfuhew4",
+    "https://youtube.com/shorts/vUgJgNphpJE",
+    "https://youtube.com/shorts/4HGPJuZNIeM",
+    "https://youtube.com/shorts/YYNtUAnX5A8",
+    "https://youtube.com/shorts/LGVQ8j-_WqU",
+    "https://youtube.com/shorts/OG7sxjA216E",
+    "https://youtube.com/shorts/Xvyb-luLGCk",
+    "https://youtube.com/shorts/BAwJc9tXdqY",
+    "https://youtube.com/shorts/5nt5xw4qrhI",
+    "https://youtube.com/shorts/DeN4pEcU5A8",
+    "https://youtube.com/shorts/8i9GtHhMph4",
+    "https://youtube.com/shorts/bSnZkiOO4Zo",
+    "https://youtube.com/shorts/MrPKVmUUBeI",
+    "https://youtube.com/shorts/C51rqB_wYkI",
+    "https://youtube.com/shorts/UmqZsP56r6I",
+    "https://youtube.com/shorts/EjQAzV9Outo",
+    "https://youtube.com/shorts/c7XkczxiVyI",
+    "https://youtube.com/shorts/QwUI4TjmK3g",
+    "https://youtube.com/shorts/5tgqEDCqoCg",
+    "https://www.youtube.com/watch?v=G1xyuVe1EXs",
+    "https://www.youtube.com/watch?v=kLkAdlyXHgU",
+    "https://www.youtube.com/watch?v=K7-Hyd3hgik",
+    "https://www.youtube.com/watch?v=7Pe-ITnNNxA",
+    "https://www.youtube.com/watch?v=dGcFrRl1WZc",
+    "https://www.youtube.com/watch?v=C_5K7Neg38Y",
+    "https://www.youtube.com/watch?v=6APAmWEUMw0",
+    "https://www.youtube.com/watch?v=s7RqOJeiprg"
+];
 
-<script src="videos.js"></script>
+const grid = document.getElementById("videos");
+
+videoLinks.forEach(link => {
+    let id;
+
+    if (link.includes("shorts")) {
+        id = link.split("/shorts/")[1].split("?")[0];
+    } else {
+        id = link.split("watch?v=")[1];
+    }
+
+    const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+    const embed = `https://www.youtube.com/embed/${id}`;
+
+    const div = document.createElement("div");
+    div.className = "video-card";
+    div.innerHTML = `
+        <img src="${thumb}" loading="lazy" class="thumb">
+    `;
+
+    div.onclick = () => {
+        div.innerHTML = `
+            <iframe src="${embed}" allowfullscreen></iframe>
+        `;
+    };
+
+    grid.appendChild(div);
+});
+</script>
 
 </body>
 </html>
