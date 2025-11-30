@@ -31,24 +31,12 @@ const images = [
   "IMG_5359.jpg",
   "IMG_5383.JPG",
   "IMG_5576.JPG",
-  "IMG_5750 2.JPG",
-  "IMG_5750.JPG",
-  "IMG_5972.JPG",
-  "IMG_5973.JPG",
-  "IMG_5974.JPG",
-  "IMG_5976.JPG",
-  "IMG_5977.JPG",
-  "IMG_5980.JPG",
-  "IMG_5981.JPG",
-  "IMG_5983.JPG",
-  "IMG_5985.JPG",
-  "IMG_5987.JPG",
-  "IMG_5988.JPG",
-  "IMG_6026.JPG",
-  "IMG_6031.JPG",
-  "IMG_6049.JPG",
-  "IMG_8718.png",
-  "IMG_8909.png",
+  "IMG_5704.PNG",
+  "IMG_5917.JPG",
+  "IMG_6034.PNG",
+  "IMG_8515.png",
+  "IMG_8717.PNG",
+  "IMG_8902.png",
   "IMG_8922.jpg",
   "IMG_8926.JPG",
   "IMG_8943.png",
@@ -68,10 +56,11 @@ const images = [
 const gallery = document.getElementById("gallery");
 
 if (gallery) {
-  images.forEach(name => {
+  images.forEach(filename => {
     const img = document.createElement("img");
-    img.src = "images/" + name;
+    img.src = "images/" + filename;
     img.loading = "lazy";
+    img.alt = "Photo of Bryan & Laylah";
     gallery.appendChild(img);
   });
 }
